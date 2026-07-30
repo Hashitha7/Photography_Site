@@ -45,8 +45,8 @@ export default function SplashScreen() {
           top: '-50%',
           left: '-50%',
           backgroundImage: `
-            linear-gradient(rgba(201,169,110,0.18) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(201,169,110,0.18) 1px, transparent 1px)
+            linear-gradient(rgba(225,184,84,0.2) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(225,184,84,0.2) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
           transform: 'rotateX(55deg) translateZ(-80px)',
@@ -61,7 +61,7 @@ export default function SplashScreen() {
         width: '600px',
         height: '600px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(201,169,110,0.15) 0%, rgba(160,100,60,0.06) 40%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(225,184,84,0.15) 0%, rgba(179,133,27,0.06) 40%, transparent 70%)',
         filter: 'blur(40px)',
         animation: 'glowPulse 3s ease-in-out infinite',
       }} />
@@ -84,11 +84,11 @@ export default function SplashScreen() {
           width: p.size,
           height: p.size,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, #c9a96e, #9a6830)',
+          background: 'radial-gradient(circle, #fce8a1, #e1b854)',
           opacity: p.opacity,
           animation: `floatParticle ${p.dur} ease-in-out ${p.delay} infinite`,
           filter: 'blur(1px)',
-          boxShadow: `0 0 ${p.size * 3}px rgba(201,169,110,0.6)`,
+          boxShadow: `0 0 ${p.size * 3}px rgba(225,184,84,0.6)`,
         }} />
       ))}
 
@@ -103,7 +103,7 @@ export default function SplashScreen() {
           position: 'absolute',
           width: '3rem',
           height: '3rem',
-          borderColor: 'rgba(201,169,110,0.35)',
+          borderColor: 'rgba(225,184,84,0.35)',
           borderStyle: 'solid',
           borderWidth: 0,
           ...s,
@@ -124,11 +124,11 @@ export default function SplashScreen() {
           background: 'linear-gradient(135deg, #f7f2ea 0%, #ede5d5 100%)',
           borderRadius: '16px',
           padding: '2.5rem 3.5rem',
-          border: '1px solid rgba(201,169,110,0.6)',
+          border: '1px solid rgba(225,184,84,0.6)',
           boxShadow: `
-            0 0 0 1px rgba(201,169,110,0.1),
+            0 0 0 1px rgba(225,184,84,0.1),
             0 20px 60px rgba(0,0,0,0.6),
-            0 8px 25px rgba(201,169,110,0.2),
+            0 8px 25px rgba(225,184,84,0.2),
             inset 0 1px 0 rgba(255,255,255,0.8)
           `,
           animation: 'cardFloat 4s ease-in-out infinite',
@@ -168,13 +168,13 @@ export default function SplashScreen() {
       }}>
         <div style={{
           height: '1.5px',
-          background: 'rgba(201,169,110,0.15)',
+          background: 'rgba(225,184,84,0.15)',
           borderRadius: '2px',
           overflow: 'hidden',
         }}>
           <div style={{
             height: '100%',
-            background: 'linear-gradient(to right, #8a5c20, #c9a96e, #e8cfa0, #c9a96e, #8a5c20)',
+            background: 'linear-gradient(to right, #b3851b, #e1b854, #fce8a1, #e1b854, #b3851b)',
             backgroundSize: '200% 100%',
             borderRadius: '2px',
             animation: 'splashProgress 4s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards, goldSheen 2s linear 1s infinite',
@@ -190,7 +190,7 @@ export default function SplashScreen() {
         fontFamily: "'Playfair Display', Georgia, serif",
         fontStyle: 'italic',
         fontSize: 'clamp(.78rem, 2vw, .95rem)',
-        color: 'rgba(232,207,160,0.75)',
+        color: 'rgba(252,232,161,0.85)',
         letterSpacing: '0.22em',
         opacity: 0,
         animation: 'splashBarIn 0.5s ease 1.2s forwards',

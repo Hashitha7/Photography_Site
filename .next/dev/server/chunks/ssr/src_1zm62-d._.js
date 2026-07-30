@@ -54,8 +54,8 @@ function SplashScreen() {
                         top: '-50%',
                         left: '-50%',
                         backgroundImage: `
-            linear-gradient(rgba(201,169,110,0.18) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(201,169,110,0.18) 1px, transparent 1px)
+            linear-gradient(rgba(225,184,84,0.2) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(225,184,84,0.2) 1px, transparent 1px)
           `,
                         backgroundSize: '60px 60px',
                         transform: 'rotateX(55deg) translateZ(-80px)',
@@ -78,7 +78,7 @@ function SplashScreen() {
                     width: '600px',
                     height: '600px',
                     borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(201,169,110,0.15) 0%, rgba(160,100,60,0.06) 40%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(225,184,84,0.15) 0%, rgba(179,133,27,0.06) 40%, transparent 70%)',
                     filter: 'blur(40px)',
                     animation: 'glowPulse 3s ease-in-out infinite'
                 }
@@ -160,11 +160,11 @@ function SplashScreen() {
                         width: p.size,
                         height: p.size,
                         borderRadius: '50%',
-                        background: 'radial-gradient(circle, #c9a96e, #9a6830)',
+                        background: 'radial-gradient(circle, #fce8a1, #e1b854)',
                         opacity: p.opacity,
                         animation: `floatParticle ${p.dur} ease-in-out ${p.delay} infinite`,
                         filter: 'blur(1px)',
-                        boxShadow: `0 0 ${p.size * 3}px rgba(201,169,110,0.6)`
+                        boxShadow: `0 0 ${p.size * 3}px rgba(225,184,84,0.6)`
                     }
                 }, i, false, {
                     fileName: "[project]/src/components/SplashScreen.tsx",
@@ -201,7 +201,7 @@ function SplashScreen() {
                         position: 'absolute',
                         width: '3rem',
                         height: '3rem',
-                        borderColor: 'rgba(201,169,110,0.35)',
+                        borderColor: 'rgba(225,184,84,0.35)',
                         borderStyle: 'solid',
                         borderWidth: 0,
                         ...s,
@@ -225,11 +225,11 @@ function SplashScreen() {
                         background: 'linear-gradient(135deg, #f7f2ea 0%, #ede5d5 100%)',
                         borderRadius: '16px',
                         padding: '2.5rem 3.5rem',
-                        border: '1px solid rgba(201,169,110,0.6)',
+                        border: '1px solid rgba(225,184,84,0.6)',
                         boxShadow: `
-            0 0 0 1px rgba(201,169,110,0.1),
+            0 0 0 1px rgba(225,184,84,0.1),
             0 20px 60px rgba(0,0,0,0.6),
-            0 8px 25px rgba(201,169,110,0.2),
+            0 8px 25px rgba(225,184,84,0.2),
             inset 0 1px 0 rgba(255,255,255,0.8)
           `,
                         animation: 'cardFloat 4s ease-in-out infinite',
@@ -287,14 +287,14 @@ function SplashScreen() {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
                         height: '1.5px',
-                        background: 'rgba(201,169,110,0.15)',
+                        background: 'rgba(225,184,84,0.15)',
                         borderRadius: '2px',
                         overflow: 'hidden'
                     },
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
                             height: '100%',
-                            background: 'linear-gradient(to right, #8a5c20, #c9a96e, #e8cfa0, #c9a96e, #8a5c20)',
+                            background: 'linear-gradient(to right, #b3851b, #e1b854, #fce8a1, #e1b854, #b3851b)',
                             backgroundSize: '200% 100%',
                             borderRadius: '2px',
                             animation: 'splashProgress 4s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards, goldSheen 2s linear 1s infinite',
@@ -322,7 +322,7 @@ function SplashScreen() {
                     fontFamily: "'Playfair Display', Georgia, serif",
                     fontStyle: 'italic',
                     fontSize: 'clamp(.78rem, 2vw, .95rem)',
-                    color: 'rgba(232,207,160,0.75)',
+                    color: 'rgba(252,232,161,0.85)',
                     letterSpacing: '0.22em',
                     opacity: 0,
                     animation: 'splashBarIn 0.5s ease 1.2s forwards',
@@ -1626,16 +1626,8 @@ const SERVICES = [
         ]
     }
 ];
-const CATS = [
-    'All',
-    'Wedding',
-    'Engagement',
-    'Portraits',
-    'Events'
-];
 function Services() {
     const ref = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const [activeCat, setActiveCat] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('All');
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const obs = new IntersectionObserver((entries)=>entries.forEach((en)=>{
                 if (en.isIntersecting) en.target.querySelectorAll('.reveal').forEach((el)=>el.classList.add('in'));
@@ -1645,13 +1637,21 @@ function Services() {
         if (ref.current) obs.observe(ref.current);
         return ()=>obs.disconnect();
     }, []);
-    const visible = activeCat === 'All' ? SERVICES : SERVICES.filter((s)=>s.cat === activeCat);
     const scrollToContact = (e)=>{
         e.preventDefault();
         e.stopPropagation();
         document.querySelector('#contact')?.scrollIntoView({
             behavior: 'smooth'
         });
+    };
+    const handleCardClick = (e)=>{
+        const card = e.currentTarget;
+        // Remove flipped class from all other cards
+        document.querySelectorAll('.flip-card').forEach((el)=>{
+            if (el !== card) el.classList.remove('flipped');
+        });
+        // Toggle the clicked card
+        card.classList.toggle('flipped');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "services",
@@ -1668,7 +1668,7 @@ function Services() {
                             children: "What I Offer"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Services.tsx",
-                            lineNumber: 137,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1682,50 +1682,34 @@ function Services() {
                                     children: "Services"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Services.tsx",
-                                    lineNumber: 138,
-                                    columnNumber: 78
+                                    lineNumber: 143,
+                                    columnNumber: 79
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Services.tsx",
-                            lineNumber: 138,
+                            lineNumber: 143,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            children: "Tailored packages for every occasion — hover the cards to see full details."
+                            children: "Tailored packages for every occasion — click the cards to see full details."
                         }, void 0, false, {
                             fileName: "[project]/src/components/Services.tsx",
-                            lineNumber: 139,
+                            lineNumber: 144,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Services.tsx",
-                    lineNumber: 136,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "svc-tabs reveal d1",
-                    children: CATS.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            className: `svc-tab${activeCat === c ? ' active' : ''}`,
-                            onClick: ()=>setActiveCat(c),
-                            id: `svc-tab-${c.toLowerCase()}`,
-                            children: c
-                        }, c, false, {
-                            fileName: "[project]/src/components/Services.tsx",
-                            lineNumber: 145,
-                            columnNumber: 13
-                        }, this))
-                }, void 0, false, {
-                    fileName: "[project]/src/components/Services.tsx",
-                    lineNumber: 143,
+                    lineNumber: 141,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "svc-grid",
-                    children: visible.map((svc, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: SERVICES.map((svc, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: `flip-card reveal d${Math.min(i + 1, 4)}`,
                             id: `svc-${svc.id}`,
+                            onClick: handleCardClick,
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flip-inner",
                                 children: [
@@ -1754,12 +1738,12 @@ function Services() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Services.tsx",
-                                                    lineNumber: 169,
+                                                    lineNumber: 163,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Services.tsx",
-                                                lineNumber: 167,
+                                                lineNumber: 161,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1770,7 +1754,7 @@ function Services() {
                                                         children: svc.cat
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 177,
+                                                        lineNumber: 171,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1778,27 +1762,27 @@ function Services() {
                                                         children: svc.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 178,
+                                                        lineNumber: 172,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flip-front-hint",
-                                                        children: "Hover to see details"
+                                                        children: "Click to see details"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 179,
+                                                        lineNumber: 173,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/Services.tsx",
-                                                lineNumber: 176,
+                                                lineNumber: 170,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Services.tsx",
-                                        lineNumber: 166,
+                                        lineNumber: 160,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1811,7 +1795,7 @@ function Services() {
                                                         children: svc.cat
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 187,
+                                                        lineNumber: 181,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1819,7 +1803,7 @@ function Services() {
                                                         children: svc.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 188,
+                                                        lineNumber: 182,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1827,7 +1811,7 @@ function Services() {
                                                         children: svc.desc
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 189,
+                                                        lineNumber: 183,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1836,18 +1820,18 @@ function Services() {
                                                                 children: f
                                                             }, f, false, {
                                                                 fileName: "[project]/src/components/Services.tsx",
-                                                                lineNumber: 191,
+                                                                lineNumber: 185,
                                                                 columnNumber: 46
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 190,
+                                                        lineNumber: 184,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/Services.tsx",
-                                                lineNumber: 186,
+                                                lineNumber: 180,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1860,7 +1844,7 @@ function Services() {
                                                                 children: svc.price
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/Services.tsx",
-                                                                lineNumber: 196,
+                                                                lineNumber: 190,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1868,13 +1852,13 @@ function Services() {
                                                                 children: svc.unit
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/Services.tsx",
-                                                                lineNumber: 197,
+                                                                lineNumber: 191,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 195,
+                                                        lineNumber: 189,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1883,46 +1867,46 @@ function Services() {
                                                         children: "Book Now"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/Services.tsx",
-                                                        lineNumber: 199,
+                                                        lineNumber: 193,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/Services.tsx",
-                                                lineNumber: 194,
+                                                lineNumber: 188,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Services.tsx",
-                                        lineNumber: 185,
+                                        lineNumber: 179,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Services.tsx",
-                                lineNumber: 164,
+                                lineNumber: 158,
                                 columnNumber: 15
                             }, this)
                         }, svc.id, false, {
                             fileName: "[project]/src/components/Services.tsx",
-                            lineNumber: 159,
+                            lineNumber: 152,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Services.tsx",
-                    lineNumber: 157,
+                    lineNumber: 150,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/Services.tsx",
-            lineNumber: 134,
+            lineNumber: 139,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/Services.tsx",
-        lineNumber: 133,
+        lineNumber: 138,
         columnNumber: 5
     }, this);
 }

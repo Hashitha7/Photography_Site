@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 
 type Cat = 'All' | 'Wedding' | 'Engagement' | 'Portraits' | 'Events';
@@ -104,11 +104,8 @@ const SERVICES: Service[] = [
   },
 ];
 
-const CATS: Cat[] = ['All', 'Wedding', 'Engagement', 'Portraits', 'Events'];
-
 export default function Services() {
   const ref = useRef<HTMLElement>(null);
-  const [activeCat, setActiveCat] = useState<Cat>('All');
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -119,14 +116,22 @@ export default function Services() {
     return () => obs.disconnect();
   }, []);
 
-  const visible = activeCat === 'All'
-    ? SERVICES
-    : SERVICES.filter(s => s.cat === activeCat);
+
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    // Remove flipped class from all other cards
+    document.querySelectorAll('.flip-card').forEach(el => {
+      if (el !== card) el.classList.remove('flipped');
+    });
+    // Toggle the clicked card
+    card.classList.toggle('flipped');
   };
 
   return (
@@ -135,48 +140,37 @@ export default function Services() {
         {/* Intro */}
         <div className="services-intro reveal">
           <div className="label">What I Offer</div>
-          <h2 className="heading" style={{ textAlign:'center' }}>Photography <em>Services</em></h2>
-          <p>Tailored packages for every occasion — hover the cards to see full details.</p>
+          <h2 className="heading" style={{ textAlign: 'center' }}>Photography <em>Services</em></h2>
+          <p>Tailored packages for every occasion — click the cards to see full details.</p>
         </div>
 
-        {/* Category tabs */}
-        <div className="svc-tabs reveal d1">
-          {CATS.map(c => (
-            <button
-              key={c}
-              className={`svc-tab${activeCat === c ? ' active' : ''}`}
-              onClick={() => setActiveCat(c)}
-              id={`svc-tab-${c.toLowerCase()}`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+
 
         {/* 3D Flip Grid */}
         <div className="svc-grid">
-          {visible.map((svc, i) => (
+          {SERVICES.map((svc, i) => (
             <div
               key={svc.id}
               className={`flip-card reveal d${Math.min(i + 1, 4)}`}
               id={`svc-${svc.id}`}
+              onClick={handleCardClick}
             >
               <div className="flip-inner">
                 {/* ── FRONT ── */}
                 <div className="flip-front">
-                  <div style={{ width:'100%', height:'75%', background:'#090910', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden' }}>
+                  <div style={{ width: '100%', height: '75%', background: '#090910', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={svc.images[0]}
                       alt={svc.title}
                       loading="lazy"
-                      style={{ width:'100%', height:'100%', objectFit:'contain', transition:'transform .5s ease' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain', transition: 'transform .5s ease' }}
                     />
                   </div>
                   <div className="flip-front-body">
                     <div className="flip-front-cat">{svc.cat}</div>
                     <div className="flip-front-title">{svc.title}</div>
-                    <div className="flip-front-hint">Hover to see details</div>
+                    <div className="flip-front-hint">Click to see details</div>
                   </div>
                 </div>
 

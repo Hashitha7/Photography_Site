@@ -7,15 +7,15 @@
   --bg: #060608;
   --bg2: #0c0c10;
   --bg3: #111118;
-  --gold: #c9a96e;
-  --gold-l: #e8cfa0;
-  --gold-d: #9a7040;
-  --cream: #f0ebe0;
-  --text: #ddd8cf;
-  --muted: rgba(221,216,207,0.55);
-  --faint: rgba(221,216,207,0.28);
-  --border: rgba(255,255,255,0.07);
-  --border-gold: rgba(201,169,110,0.25);
+  --gold: #e1b854;
+  --gold-l: #fce8a1;
+  --gold-d: #b3851b;
+  --cream: #f4eee1;
+  --text: #e6e2da;
+  --muted: rgba(230,226,218,0.55);
+  --faint: rgba(230,226,218,0.28);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(225,184,84,0.35);
   --font-d: 'Playfair Display', Georgia, serif;
   --font-b: 'Inter', system-ui, sans-serif;
   --ease: cubic-bezier(0.25,0.46,0.45,0.94);
@@ -32,7 +32,22 @@
    =========================== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-weight:400;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body {
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(circle at 15% 30%, rgba(225,184,84,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(225,184,84,0.03) 0%, transparent 45%),
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-b);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 button{border:none;cursor:pointer;background:none;font-family:var(--font-b)}
@@ -167,14 +182,14 @@ button{border:none;cursor:pointer;background:none;font-family:var(--font-b)}
 
 .flip-card{height:480px;perspective:1000px;cursor:pointer}
 .flip-inner{position:relative;width:100%;height:100%;transition:transform .7s var(--ease);transform-style:preserve-3d}
-.flip-card:hover .flip-inner{transform:rotateY(180deg)}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
 .flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--rl);overflow:hidden}
 
 /* Front face */
 .flip-front{background:var(--bg3);border:1px solid var(--border)}
 /* object-fit:contain so full photo shows with no face cropping */
 .flip-front img{width:100%;height:100%;object-fit:contain;background:#0a0a0c;transition:transform .5s ease}
-.flip-card:hover .flip-front img{transform:scale(1.03)}
+.flip-card.flipped .flip-front img{transform:scale(1.03)}
 .flip-front-body{padding:1.5rem}
 .flip-front-cat{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
 .flip-front-title{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--cream)}

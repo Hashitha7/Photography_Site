@@ -3,15 +3,15 @@
   --bg: #060608;
   --bg2: #0c0c10;
   --bg3: #111118;
-  --gold: #c9a96e;
-  --gold-l: #e8cfa0;
-  --gold-d: #9a7040;
-  --cream: #f0ebe0;
-  --text: #ddd8cf;
-  --muted: #ddd8cf8c;
-  --faint: #ddd8cf47;
-  --border: #ffffff12;
-  --border-gold: #c9a96e40;
+  --gold: #e1b854;
+  --gold-l: #fce8a1;
+  --gold-d: #b3851b;
+  --cream: #f4eee1;
+  --text: #e6e2da;
+  --muted: #e6e2da8c;
+  --faint: #e6e2da47;
+  --border: #ffffff14;
+  --border-gold: #e1b85459;
   --font-d: "Playfair Display", Georgia, serif;
   --font-b: "Inter", system-ui, sans-serif;
   --ease: cubic-bezier(.25,.46,.45,.94);
@@ -35,10 +35,13 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-b);
   -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at 15% 30%, #e1b8540a 0%, #0000 40%), radial-gradient(circle at 85% 70%, #e1b85408 0%, #0000 45%), linear-gradient(#ffffff04 1px, #0000 1px), linear-gradient(90deg, #ffffff04 1px, #0000 1px);
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+  background-attachment: fixed;
   font-weight: 400;
   line-height: 1.7;
   overflow-x: hidden;
@@ -716,7 +719,7 @@ button {
   position: relative;
 }
 
-.flip-card:hover .flip-inner {
+.flip-card.flipped .flip-inner {
   transform: rotateY(180deg);
 }
 
@@ -741,7 +744,7 @@ button {
   transition: transform .5s;
 }
 
-.flip-card:hover .flip-front img {
+.flip-card.flipped .flip-front img {
   transform: scale(1.03);
 }
 

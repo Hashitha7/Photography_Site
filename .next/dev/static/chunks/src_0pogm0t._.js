@@ -17,7 +17,6 @@ function SplashScreen() {
     const [phase, setPhase] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('visible');
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "SplashScreen.useEffect": ()=>{
-            // After 4.2s start fade-out, done at 5s
             const fadeTimer = setTimeout({
                 "SplashScreen.useEffect.fadeTimer": ()=>setPhase('fading')
             }["SplashScreen.useEffect.fadeTimer"], 4200);
@@ -38,33 +37,44 @@ function SplashScreen() {
             position: 'fixed',
             inset: 0,
             zIndex: 99999,
-            background: '#f5f0e8',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '3rem',
+            gap: '2.5rem',
             transition: 'opacity 0.8s ease',
             opacity: phase === 'fading' ? 0 : 1,
-            pointerEvents: phase === 'fading' ? 'none' : 'all'
+            pointerEvents: phase === 'fading' ? 'none' : 'all',
+            overflow: 'hidden',
+            background: '#0a0810'
         },
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
-                    animation: 'splashLogoIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-                    opacity: 0
+                    position: 'absolute',
+                    inset: 0,
+                    perspective: '600px',
+                    overflow: 'hidden'
                 },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                    src: "/images/about/logo.jpg",
-                    alt: "The Vow's by Tharusha Dilshan",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
-                        width: 'min(380px, 70vw)',
-                        height: 'auto',
-                        display: 'block'
+                        position: 'absolute',
+                        width: '200%',
+                        height: '200%',
+                        top: '-50%',
+                        left: '-50%',
+                        backgroundImage: `
+            linear-gradient(rgba(201,169,110,0.18) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(201,169,110,0.18) 1px, transparent 1px)
+          `,
+                        backgroundSize: '60px 60px',
+                        transform: 'rotateX(55deg) translateZ(-80px)',
+                        transformOrigin: 'center center',
+                        animation: 'gridMove 4s linear infinite'
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/SplashScreen.tsx",
-                    lineNumber: 42,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
@@ -74,53 +84,295 @@ function SplashScreen() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
-                    width: 'min(300px, 60vw)',
-                    height: '1px',
-                    background: 'rgba(160, 120, 64, 0.2)',
-                    borderRadius: '1px',
-                    overflow: 'hidden',
-                    animation: 'splashBarIn 0.6s ease 0.5s forwards',
+                    position: 'absolute',
+                    width: '600px',
+                    height: '600px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(201,169,110,0.15) 0%, rgba(160,100,60,0.06) 40%, transparent 70%)',
+                    filter: 'blur(40px)',
+                    animation: 'glowPulse 3s ease-in-out infinite'
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/SplashScreen.tsx",
+                lineNumber: 59,
+                columnNumber: 7
+            }, this),
+            [
+                {
+                    size: 8,
+                    x: '15%',
+                    y: '20%',
+                    delay: '0s',
+                    dur: '4s',
+                    opacity: 0.5
+                },
+                {
+                    size: 5,
+                    x: '85%',
+                    y: '15%',
+                    delay: '0.8s',
+                    dur: '5s',
+                    opacity: 0.4
+                },
+                {
+                    size: 12,
+                    x: '75%',
+                    y: '70%',
+                    delay: '1.2s',
+                    dur: '3.5s',
+                    opacity: 0.35
+                },
+                {
+                    size: 6,
+                    x: '20%',
+                    y: '75%',
+                    delay: '0.4s',
+                    dur: '4.5s',
+                    opacity: 0.45
+                },
+                {
+                    size: 4,
+                    x: '50%',
+                    y: '10%',
+                    delay: '1.6s',
+                    dur: '6s',
+                    opacity: 0.3
+                },
+                {
+                    size: 9,
+                    x: '90%',
+                    y: '45%',
+                    delay: '2s',
+                    dur: '3.8s',
+                    opacity: 0.4
+                },
+                {
+                    size: 7,
+                    x: '10%',
+                    y: '50%',
+                    delay: '0.6s',
+                    dur: '5.5s',
+                    opacity: 0.35
+                },
+                {
+                    size: 5,
+                    x: '60%',
+                    y: '85%',
+                    delay: '1s',
+                    dur: '4.2s',
+                    opacity: 0.3
+                }
+            ].map((p, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'absolute',
+                        left: p.x,
+                        top: p.y,
+                        width: p.size,
+                        height: p.size,
+                        borderRadius: '50%',
+                        background: 'radial-gradient(circle, #c9a96e, #9a6830)',
+                        opacity: p.opacity,
+                        animation: `floatParticle ${p.dur} ease-in-out ${p.delay} infinite`,
+                        filter: 'blur(1px)',
+                        boxShadow: `0 0 ${p.size * 3}px rgba(201,169,110,0.6)`
+                    }
+                }, i, false, {
+                    fileName: "[project]/src/components/SplashScreen.tsx",
+                    lineNumber: 80,
+                    columnNumber: 9
+                }, this)),
+            [
+                {
+                    top: '2.5rem',
+                    left: '2.5rem',
+                    borderTop: '1px solid',
+                    borderLeft: '1px solid'
+                },
+                {
+                    top: '2.5rem',
+                    right: '2.5rem',
+                    borderTop: '1px solid',
+                    borderRight: '1px solid'
+                },
+                {
+                    bottom: '2.5rem',
+                    left: '2.5rem',
+                    borderBottom: '1px solid',
+                    borderLeft: '1px solid'
+                },
+                {
+                    bottom: '2.5rem',
+                    right: '2.5rem',
+                    borderBottom: '1px solid',
+                    borderRight: '1px solid'
+                }
+            ].map((s, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'absolute',
+                        width: '3rem',
+                        height: '3rem',
+                        borderColor: 'rgba(201,169,110,0.35)',
+                        borderStyle: 'solid',
+                        borderWidth: 0,
+                        ...s,
+                        animation: `cornerFade 1s ease ${i * 0.15}s forwards`,
+                        opacity: 0
+                    }
+                }, i, false, {
+                    fileName: "[project]/src/components/SplashScreen.tsx",
+                    lineNumber: 102,
+                    columnNumber: 9
+                }, this)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'relative',
+                    zIndex: 10,
+                    animation: 'splashLogoIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards',
                     opacity: 0
                 },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     style: {
-                        height: '100%',
-                        background: 'linear-gradient(to right, #a07840, #c9a96e, #a07840)',
-                        borderRadius: '1px',
-                        animation: 'splashProgress 4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards',
-                        width: '0%'
-                    }
-                }, void 0, false, {
+                        background: 'linear-gradient(135deg, #f7f2ea 0%, #ede5d5 100%)',
+                        borderRadius: '16px',
+                        padding: '2.5rem 3.5rem',
+                        border: '1px solid rgba(201,169,110,0.6)',
+                        boxShadow: `
+            0 0 0 1px rgba(201,169,110,0.1),
+            0 20px 60px rgba(0,0,0,0.6),
+            0 8px 25px rgba(201,169,110,0.2),
+            inset 0 1px 0 rgba(255,255,255,0.8)
+          `,
+                        animation: 'cardFloat 4s ease-in-out infinite',
+                        position: 'relative',
+                        overflow: 'hidden'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                inset: 0,
+                                background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%)',
+                                animation: 'shimmer 3s ease-in-out 1s infinite',
+                                borderRadius: '16px'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/SplashScreen.tsx",
+                            lineNumber: 139,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: "/images/about/logo.jpg",
+                            alt: "The Vow's by Tharusha Dilshan",
+                            style: {
+                                width: 'min(340px, 60vw)',
+                                height: 'auto',
+                                display: 'block',
+                                position: 'relative',
+                                zIndex: 1
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/SplashScreen.tsx",
+                            lineNumber: 147,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/src/components/SplashScreen.tsx",
-                    lineNumber: 65,
+                    lineNumber: 123,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/SplashScreen.tsx",
-                lineNumber: 54,
+                lineNumber: 116,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'relative',
+                    zIndex: 10,
+                    width: 'min(280px, 55vw)',
+                    animation: 'splashBarIn 0.5s ease 0.8s forwards',
+                    opacity: 0
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        height: '1.5px',
+                        background: 'rgba(201,169,110,0.15)',
+                        borderRadius: '2px',
+                        overflow: 'hidden'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            height: '100%',
+                            background: 'linear-gradient(to right, #8a5c20, #c9a96e, #e8cfa0, #c9a96e, #8a5c20)',
+                            backgroundSize: '200% 100%',
+                            borderRadius: '2px',
+                            animation: 'splashProgress 4s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards, goldSheen 2s linear 1s infinite',
+                            width: '0%'
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/SplashScreen.tsx",
+                        lineNumber: 175,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/components/SplashScreen.tsx",
+                    lineNumber: 169,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/components/SplashScreen.tsx",
+                lineNumber: 162,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 style: {
+                    position: 'relative',
+                    zIndex: 10,
                     fontFamily: "'Playfair Display', Georgia, serif",
                     fontStyle: 'italic',
-                    fontSize: 'clamp(.8rem, 2vw, 1rem)',
-                    color: '#6a5a40',
-                    letterSpacing: '0.15em',
+                    fontSize: 'clamp(.78rem, 2vw, .95rem)',
+                    color: 'rgba(232,207,160,0.75)',
+                    letterSpacing: '0.22em',
                     opacity: 0,
-                    animation: 'splashBarIn 0.6s ease 1s forwards'
+                    animation: 'splashBarIn 0.5s ease 1.2s forwards',
+                    textTransform: 'uppercase'
                 },
                 children: "Capturing Life's Most Beautiful Moments"
             }, void 0, false, {
                 fileName: "[project]/src/components/SplashScreen.tsx",
-                lineNumber: 77,
+                lineNumber: 187,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
                 children: `
+        @keyframes gridMove {
+          0%   { transform: rotateX(55deg) translateY(0) translateZ(-80px); }
+          100% { transform: rotateX(55deg) translateY(60px) translateZ(-80px); }
+        }
+        @keyframes glowPulse {
+          0%,100% { transform: scale(1); opacity:0.8; }
+          50%      { transform: scale(1.15); opacity:1; }
+        }
+        @keyframes floatParticle {
+          0%,100% { transform: translateY(0) scale(1); }
+          50%      { transform: translateY(-22px) scale(1.2); }
+        }
+        @keyframes cornerFade {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
         @keyframes splashLogoIn {
-          from { opacity: 0; transform: scale(0.92) translateY(12px); }
+          from { opacity: 0; transform: scale(0.88) translateY(18px); }
           to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes cardFloat {
+          0%,100% { transform: translateY(0) rotateX(1deg); }
+          50%      { transform: translateY(-10px) rotateX(-1deg); }
+        }
+        @keyframes shimmer {
+          0%   { transform: translateX(-100%); }
+          100% { transform: translateX(200%); }
         }
         @keyframes splashBarIn {
           from { opacity: 0; }
@@ -130,16 +382,20 @@ function SplashScreen() {
           from { width: 0%; }
           to   { width: 100%; }
         }
+        @keyframes goldSheen {
+          0%   { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
       `
             }, void 0, false, {
                 fileName: "[project]/src/components/SplashScreen.tsx",
-                lineNumber: 91,
+                lineNumber: 202,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/SplashScreen.tsx",
-        lineNumber: 18,
+        lineNumber: 17,
         columnNumber: 5
     }, this);
 }
@@ -225,23 +481,45 @@ function Navbar() {
                                 "aria-label": "The Vow's by Tharusha Dilshan — Home",
                                 style: {
                                     display: 'flex',
-                                    alignItems: 'center'
+                                    alignItems: 'center',
+                                    textDecoration: 'none'
                                 },
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: "/images/about/logo.jpg",
-                                    alt: "The Vow's by Tharusha Dilshan",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     style: {
-                                        height: '48px',
-                                        width: 'auto',
-                                        display: 'block',
-                                        filter: 'invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.4)',
-                                        transition: 'filter 0.3s ease, transform 0.3s ease'
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
+                                        borderRadius: '8px',
+                                        padding: '5px 12px',
+                                        border: '1px solid rgba(201,169,110,0.5)',
+                                        boxShadow: '0 2px 12px rgba(201,169,110,0.2)',
+                                        transition: 'box-shadow 0.3s ease, transform 0.3s ease'
                                     },
-                                    onMouseEnter: (e)=>e.currentTarget.style.transform = 'scale(1.04)',
-                                    onMouseLeave: (e)=>e.currentTarget.style.transform = 'scale(1)'
+                                    onMouseEnter: (e)=>{
+                                        e.currentTarget.style.boxShadow = '0 4px 20px rgba(201,169,110,0.45)';
+                                        e.currentTarget.style.transform = 'scale(1.04)';
+                                    },
+                                    onMouseLeave: (e)=>{
+                                        e.currentTarget.style.boxShadow = '0 2px 12px rgba(201,169,110,0.2)';
+                                        e.currentTarget.style.transform = 'scale(1)';
+                                    },
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: "/images/about/logo.jpg",
+                                        alt: "The Vow's by Tharusha Dilshan",
+                                        style: {
+                                            height: '38px',
+                                            width: 'auto',
+                                            display: 'block'
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/Navbar.tsx",
+                                        lineNumber: 61,
+                                        columnNumber: 17
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 41,
+                                    lineNumber: 40,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
@@ -259,12 +537,12 @@ function Navbar() {
                                                 children: l.label
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Navbar.tsx",
-                                                lineNumber: 59,
+                                                lineNumber: 77,
                                                 columnNumber: 19
                                             }, this)
                                         }, l.href, false, {
                                             fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 58,
+                                            lineNumber: 76,
                                             columnNumber: 17
                                         }, this)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -275,18 +553,18 @@ function Navbar() {
                                             children: "Book Session"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 63,
+                                            lineNumber: 81,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Navbar.tsx",
-                                        lineNumber: 62,
+                                        lineNumber: 80,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 56,
+                                lineNumber: 74,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -300,7 +578,7 @@ function Navbar() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Navbar.tsx",
-                                        lineNumber: 69,
+                                        lineNumber: 87,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -309,7 +587,7 @@ function Navbar() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Navbar.tsx",
-                                        lineNumber: 70,
+                                        lineNumber: 88,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -318,13 +596,13 @@ function Navbar() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Navbar.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 89,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 68,
+                                lineNumber: 86,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -357,18 +635,33 @@ function Navbar() {
                     backdropFilter: 'blur(20px)'
                 },
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/images/about/logo.jpg",
-                        alt: "The Vow's by Tharusha Dilshan",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         style: {
-                            height: '60px',
-                            width: 'auto',
-                            filter: 'invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.4)',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
+                            borderRadius: '8px',
+                            padding: '8px 16px',
+                            border: '1px solid rgba(201,169,110,0.5)',
+                            boxShadow: '0 4px 20px rgba(201,169,110,0.25)',
                             marginBottom: '1rem'
-                        }
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: "/images/about/logo.jpg",
+                            alt: "The Vow's by Tharusha Dilshan",
+                            style: {
+                                height: '46px',
+                                width: 'auto'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Navbar.tsx",
+                            lineNumber: 110,
+                            columnNumber: 13
+                        }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 81,
+                        lineNumber: 98,
                         columnNumber: 11
                     }, this),
                     links.map((l)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -383,7 +676,7 @@ function Navbar() {
                             children: l.label
                         }, l.href, false, {
                             fileName: "[project]/src/components/Navbar.tsx",
-                            lineNumber: 87,
+                            lineNumber: 117,
                             columnNumber: 13
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -393,13 +686,13 @@ function Navbar() {
                         children: "Book a Session"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 92,
+                        lineNumber: 122,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 78,
+                lineNumber: 96,
                 columnNumber: 9
             }, this)
         ]
@@ -2612,18 +2905,33 @@ function Footer() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: "/images/about/logo.jpg",
-                                    alt: "The Vow's by Tharusha Dilshan",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     style: {
-                                        height: '44px',
-                                        width: 'auto',
-                                        filter: 'invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.4)',
-                                        marginBottom: '.4rem'
-                                    }
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
+                                        borderRadius: '8px',
+                                        padding: '6px 14px',
+                                        border: '1px solid rgba(201,169,110,0.4)',
+                                        boxShadow: '0 4px 15px rgba(201,169,110,0.15)',
+                                        marginBottom: '1rem'
+                                    },
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: "/images/about/logo.jpg",
+                                        alt: "The Vow's by Tharusha Dilshan",
+                                        style: {
+                                            height: '36px',
+                                            width: 'auto'
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/Footer.tsx",
+                                        lineNumber: 26,
+                                        columnNumber: 15
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Footer.tsx",
-                                    lineNumber: 15,
+                                    lineNumber: 14,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2631,7 +2939,7 @@ function Footer() {
                                     children: "Capturing Life's Most Beautiful Moments"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Footer.tsx",
-                                    lineNumber: 20,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -2670,17 +2978,17 @@ function Footer() {
                                         children: l
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Footer.tsx",
-                                        lineNumber: 25,
+                                        lineNumber: 37,
                                         columnNumber: 27
                                     }, this)
                                 }, h, false, {
                                     fileName: "[project]/src/components/Footer.tsx",
-                                    lineNumber: 25,
+                                    lineNumber: 37,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/components/Footer.tsx",
-                            lineNumber: 23,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, this)
                     ]
@@ -2697,7 +3005,7 @@ function Footer() {
                             children: "© 2025 Tharu Photography. All rights reserved."
                         }, void 0, false, {
                             fileName: "[project]/src/components/Footer.tsx",
-                            lineNumber: 30,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2708,20 +3016,20 @@ function Footer() {
                                     children: "♥"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Footer.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 43,
                                     columnNumber: 43
                                 }, this),
                                 " in Sri Lanka"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Footer.tsx",
-                            lineNumber: 31,
+                            lineNumber: 43,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Footer.tsx",
-                    lineNumber: 29,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, this)
             ]

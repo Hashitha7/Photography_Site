@@ -11,12 +11,24 @@ export default function Footer() {
       <div className="container">
         <div className="footer-i">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/about/logo.jpg"
-              alt="The Vow's by Tharusha Dilshan"
-              style={{ height:'44px', width:'auto', filter:'invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.4)', marginBottom:'.4rem' }}
-            />
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
+              borderRadius: '8px',
+              padding: '6px 14px',
+              border: '1px solid rgba(201,169,110,0.4)',
+              boxShadow: '0 4px 15px rgba(201,169,110,0.15)',
+              marginBottom: '1rem'
+            }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/about/logo.jpg"
+                alt="The Vow's by Tharusha Dilshan"
+                style={{ height:'36px', width:'auto' }}
+              />
+            </span>
             <div className="f-tag">Capturing Life&apos;s Most Beautiful Moments</div>
           </div>
 

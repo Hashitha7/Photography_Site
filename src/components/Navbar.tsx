@@ -35,23 +35,41 @@ export default function Navbar() {
               href="#hero"
               onClick={(e) => go(e, '#hero')}
               aria-label="The Vow's by Tharusha Dilshan — Home"
-              style={{ display: 'flex', alignItems: 'center' }}
+              style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/about/logo.jpg"
-                alt="The Vow's by Tharusha Dilshan"
-                style={{
-                  height: '48px',
-                  width: 'auto',
-                  display: 'block',
-                  filter: 'invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.4)',
-                  transition: 'filter 0.3s ease, transform 0.3s ease',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')}
-                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-              />
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
+                borderRadius: '8px',
+                padding: '5px 12px',
+                border: '1px solid rgba(201,169,110,0.5)',
+                boxShadow: '0 2px 12px rgba(201,169,110,0.2)',
+                transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(201,169,110,0.45)';
+                (e.currentTarget as HTMLElement).style.transform = 'scale(1.04)';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 2px 12px rgba(201,169,110,0.2)';
+                (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+              }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/about/logo.jpg"
+                  alt="The Vow's by Tharusha Dilshan"
+                  style={{
+                    height: '38px',
+                    width: 'auto',
+                    display: 'block',
+                  }}
+                />
+              </span>
             </a>
+
 
             <ul className="nav-links">
               {links.map((l) => (
@@ -77,12 +95,24 @@ export default function Navbar() {
       {open && (
         <div style={{ position:'fixed',inset:0,background:'rgba(6,6,8,.98)',zIndex:999,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'2.5rem',backdropFilter:'blur(20px)' }}>
           {/* Logo in mobile menu */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/about/logo.jpg"
-            alt="The Vow's by Tharusha Dilshan"
-            style={{ height:'60px', width:'auto', filter:'invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.4)', marginBottom:'1rem' }}
-          />
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
+            borderRadius: '8px',
+            padding: '8px 16px',
+            border: '1px solid rgba(201,169,110,0.5)',
+            boxShadow: '0 4px 20px rgba(201,169,110,0.25)',
+            marginBottom: '1rem'
+          }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/about/logo.jpg"
+              alt="The Vow's by Tharusha Dilshan"
+              style={{ height:'46px', width:'auto' }}
+            />
+          </span>
           {links.map(l => (
             <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}
               style={{ fontFamily:'var(--font-d)',fontSize:'2.2rem',color:'var(--cream)',fontWeight:800 }}>

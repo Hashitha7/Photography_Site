@@ -17,27 +17,27 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero">
+      {/* ── CINEMATIC BACKGROUND VIDEO ── */}
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      >
+        <source src="/videos/hero-reel.mp4" type="video/mp4" />
+        <source src="/videos/hero-reel.mov" type="video/quicktime" />
+      </video>
+      <div className="hero-video-overlay" />
+
       {/* Background orbs */}
       <div className="hero-orb hero-orb-1" />
       <div className="hero-orb hero-orb-2" />
       <div className="hero-orb hero-orb-3" />
-      <div className="hero-grid-bg" />
-
-      {/* 3D floating badge */}
-      <div className="hero-3d-badge">
-        <div className="badge-card">
-          <div className="badge-num">5★</div>
-          <div className="badge-lbl">Rating</div>
-        </div>
-      </div>
 
       <div className="container" style={{ width: '100%', position: 'relative', zIndex: 5 }}>
         <div className="hero-content" ref={ref}>
-          <div className="hero-tag reveal">
-            <span className="hero-tag-dot" />
-            <span className="hero-tag-text">Available for Bookings — 2025</span>
-          </div>
-
           <h1 className="hero-title reveal">
             Capturing Your
             <em>Perfect Moments</em>

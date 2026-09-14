@@ -49,7 +49,7 @@ export default function About() {
             <p className="about-bio reveal d1">
               Hello, I&apos;m <strong>Tharusha</strong>, a passionate photographer from Sri Lanka with a love
               for capturing authentic moments and timeless stories. My photography is more than
-              just taking pictures — it&apos;s about preserving emotions, connections, and memories
+              just taking pictures  it&apos;s about preserving emotions, connections, and memories
               that can be cherished for years to come.
             </p>
             <p className="about-bio reveal d2">

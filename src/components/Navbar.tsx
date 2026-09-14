@@ -20,6 +20,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   const go = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
@@ -39,7 +50,7 @@ export default function Navbar() {
             >
               <div className="nav-logo-circle">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/about/logo.jpg" alt="Logo" />
+                <img src="/images/about/T FINAL 4.4.png" alt="Tharusha Dilshan Photography Logo" />
               </div>
             </a>
 
@@ -64,33 +75,169 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(6,6,8,.98)', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2.5rem', backdropFilter: 'blur(20px)' }}>
-          {/* Logo in mobile menu */}
-          <span style={{
-            display: 'inline-flex',
+        <div
+          className="mobile-menu-overlay"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            height: '100dvh',
+            background: 'radial-gradient(ellipse at 50% 15%, rgba(225,184,84,0.07) 0%, rgba(8,8,12,0.98) 65%, #060608 100%)',
+            zIndex: 99999,
+            display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            background: 'linear-gradient(135deg, #f5f0e8 0%, #ede6d6 100%)',
-            borderRadius: '8px',
-            padding: '8px 16px',
-            border: '1px solid rgba(201,169,110,0.5)',
-            boxShadow: '0 4px 20px rgba(201,169,110,0.25)',
-            marginBottom: '1rem'
+            justifyContent: 'space-between',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            padding: '1.2rem 1.5rem 1.8rem',
+            boxSizing: 'border-box',
+            overflowY: 'auto',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {/* Top Bar with Close Button */}
+          <div style={{
+            width: '100%',
+            maxWidth: '380px',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            flexShrink: 0,
           }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/about/logo.jpg"
-              alt="The Vow's by Tharusha Dilshan"
-              style={{ height: '46px', width: 'auto' }}
-            />
-          </span>
-          {links.map(l => (
-            <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}
-              style={{ fontFamily: 'var(--font-d)', fontSize: '2.2rem', color: 'var(--cream)', fontWeight: 800 }}>
-              {l.label}
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                border: '1px solid rgba(225,184,84,0.35)',
+                background: 'rgba(225,184,84,0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'all 0.25s ease',
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round">
+                <line x1="4" y1="4" x2="14" y2="14" />
+                <line x1="14" y1="4" x2="4" y2="14" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Center Section: Logo + Nav Links */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '300px',
+            margin: 'auto 0',
+          }}>
+            {/* Logo card */}
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'linear-gradient(135deg, #fbf7f0 0%, #ede5d5 100%)',
+              borderRadius: '12px',
+              padding: '9px 20px',
+              border: '1px solid rgba(225,184,84,0.55)',
+              boxShadow: '0 6px 25px rgba(0,0,0,0.5), 0 0 20px rgba(225,184,84,0.15)',
+              marginBottom: '1.25rem',
+            }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/about/logo_clean.png"
+                alt="Tharusha Dilshan Photography Logo"
+                style={{ height: '26px', width: 'auto', display: 'block' }}
+              />
+            </span>
+
+            {/* Subtle decorative gold line */}
+            <div style={{
+              width: '36px',
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, var(--gold), transparent)',
+              marginBottom: '1rem',
+              opacity: 0.5,
+            }} />
+
+            {/* Nav links */}
+            <nav style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              width: '100%',
+            }}>
+              {links.map((l, i) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={(e) => go(e, l.href)}
+                  style={{
+                    fontFamily: 'var(--font-d)',
+                    fontSize: 'clamp(1.25rem, 3.2vh, 1.45rem)',
+                    color: 'var(--cream)',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    textDecoration: 'none',
+                    padding: 'clamp(0.45rem, 1.6vh, 0.7rem) 0',
+                    display: 'block',
+                    textAlign: 'center',
+                    width: '100%',
+                    borderBottom: i < links.length - 1 ? '1px solid rgba(225,184,84,0.1)' : 'none',
+                    transition: 'color 0.25s ease',
+                  }}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Subtle decorative gold line */}
+            <div style={{
+              width: '36px',
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, var(--gold), transparent)',
+              marginTop: '1rem',
+              opacity: 0.4,
+            }} />
+          </div>
+
+          {/* Bottom Section: CTA Button */}
+          <div style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            flexShrink: 0,
+            paddingTop: '0.5rem',
+          }}>
+            <a
+              href="#contact"
+              onClick={(e) => go(e, '#contact')}
+              style={{
+                display: 'inline-block',
+                fontFamily: 'var(--font-b)',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#0a0810',
+                background: 'linear-gradient(135deg, var(--gold-l) 0%, var(--gold) 50%, var(--gold-d) 100%)',
+                padding: '0.8rem 2.4rem',
+                borderRadius: '100px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 20px rgba(225,184,84,0.3), 0 2px 6px rgba(0,0,0,0.4)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+              }}
+            >
+              Book a Session
             </a>
-          ))}
-          <a href="#contact" className="btn-p" onClick={(e) => go(e, '#contact')}>Book a Session</a>
+          </div>
         </div>
       )}
 

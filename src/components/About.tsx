@@ -36,10 +36,7 @@ export default function About() {
                 }}
               />
             </div>
-            <div className="about-badge-3d">
-              <div className="badge-3d-num">5★</div>
-              <div className="badge-3d-txt">Rated</div>
-            </div>
+
           </div>
 
 
@@ -50,21 +47,25 @@ export default function About() {
               <h2 className="heading">The Artist Behind<br />the <em>Lens</em></h2>
             </div>
             <p className="about-bio reveal d1">
-              Hello! I&apos;m <strong>Tharu</strong>, a passionate photographer based in Sri Lanka with over
-              8 years of experience capturing the raw beauty of life. From intimate
-              wedding moments to breathtaking landscapes, every photograph should evoke genuine emotion.
+              Hello, I&apos;m <strong>Tharusha</strong>, a passionate photographer from Sri Lanka with a love
+              for capturing authentic moments and timeless stories. My photography is more than
+              just taking pictures — it&apos;s about preserving emotions, connections, and memories
+              that can be cherished for years to come.
             </p>
             <p className="about-bio reveal d2">
-              My approach blends <strong>technical precision</strong> with an artistic eye —
-              always chasing the perfect light, the unguarded smile, the fleeting
-              moment that tells a thousand words.
+              From weddings and portraits to lifestyle and special occasions, I focus on creating
+              images that feel natural, elegant, and genuinely you. Every session is approached
+              with creativity, attention to detail, and a commitment to finding the perfect
+              light and perspective.
+            </p>
+            <p className="about-bio reveal d2">
+              My goal is simple: to turn your moments into photographs that tell a story.
             </p>
             <div className="about-stats reveal d2">
-              {[['500+','Sessions'],['8+','Years'],['12','Awards']].map(([n,l]) => (
+              {[['100+', 'Sessions'], ['4+', 'Years']].map(([n, l]) => (
                 <div key={l}><div className="stat-n">{n}</div><div className="stat-l">{l}</div></div>
               ))}
             </div>
-            <div className="about-sig reveal d3">Tharu</div>
           </div>
         </div>
       </div>

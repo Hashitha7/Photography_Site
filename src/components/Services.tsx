@@ -2,105 +2,193 @@
 
 import { useEffect, useRef } from 'react';
 
-
-type Cat = 'All' | 'Wedding' | 'Engagement' | 'Portraits' | 'Events';
-
 interface Service {
   id: string;
-  cat: Exclude<Cat, 'All'>;
+  cat: string;
   title: string;
-  desc: string;
+  badge?: string;
   features: string[];
   price: string;
-  unit: string;
-  images: string[];   // cycle through on hover
+  images: string[];
+  btnText?: string;
+  imgPos?: string;
 }
 
-const SERVICES: Service[] = [
+const ENGAGEMENT_PACKAGES: Service[] = [
   {
-    id: 'wedding',
-    cat: 'Wedding',
-    title: 'Wedding Photography',
-    desc: "Your wedding day deserves more than photos — it deserves art. We capture every tear, every laugh, and every loving glance with cinematic precision.",
-    features: ['Full-day coverage', 'Edited hi-res gallery', 'Album design included', 'Engagement shoot'],
-    price: 'LKR 85,000',
-    unit: '/ day',
-    images: [
-      '/images/wedding/w1_1.jpg',
-      '/images/wedding/w1_2.jpg',
-      '/images/wedding/w2_1.jpg',
-      '/images/wedding/w3_1.jpg',
-    ],
-  },
-  {
-    id: 'engagement',
+    id: 'eng-lite',
     cat: 'Engagement',
-    title: 'Engagement Sessions',
-    desc: 'Celebrate your love story before the big day. Romantic, natural, and beautifully lit sessions that capture the magic of your relationship.',
-    features: ['2-hour session', '80+ edited images', 'Outdoor / indoor', 'Same-day previews'],
-    price: 'LKR 35,000',
-    unit: '/ session',
-    images: [
-      '/images/engagement/e1_1.jpg',
-      '/images/engagement/e1_2.jpg',
-      '/images/engagement/e2_1.jpg',
+    title: 'Lite',
+    features: [
+      'Main photo session at a Preferred location',
+      'Engagement Ceremony & Reception',
+      '6 Hours Coverage',
+      '12 × 18 Framed Enlargement',
+      'All unedited Images on Digital Media',
     ],
-  },
-  {
-    id: 'portraits',
-    cat: 'Portraits',
-    title: 'Portrait Sessions',
-    desc: 'Professional portraits that reveal your true character — personal branding, family memories, or artistic expression. We make you look extraordinary.',
-    features: ['2-hour session', '50+ edited images', 'Multiple outfits', 'Studio or outdoor'],
     price: 'LKR 25,000',
-    unit: '/ session',
-    images: [
-      '/images/portraits/p_1.jpg',
-      '/images/portraits/p_2.jpg',
-      '/images/portraits/p_3.jpg',
-    ],
+    images: ['/images/engagement/e1_1.jpg'],
   },
   {
-    id: 'graduation',
+    id: 'eng-classic',
+    cat: 'Engagement',
+    title: 'Classic',
+    features: [
+      'Main photo session at a Preferred location',
+      'Engagement Ceremony & Reception',
+      '6 Hours Coverage',
+      '10 × 20 Fine Art Album — 20 Pages',
+      '16 × 24 Framed Enlargement',
+      'All unedited Images on Digital Media',
+    ],
+    price: 'LKR 50,000',
+    images: ['/images/engagement/e1_2.jpg'],
+  },
+];
+
+const WEDDING_PACKAGES: Service[] = [
+  {
+    id: 'wed-basic',
+    cat: 'Wedding',
+    title: 'Basic Package',
+    features: [
+      "Bride's whilst getting ready at the hotel",
+      "Groom's whilst getting ready at the hotel",
+      'Main photo session at a Preferred location',
+      'Wedding Ceremony & Reception',
+      '16 × 24 Two Framed Enlargement',
+      '100 Thank You Cards or 8 × 24 Fine Art Album',
+      'Couple Main Photo Sessions',
+      'Exclusive full event coverage',
+    ],
+    price: 'LKR 75,000',
+    images: ['/images/wedding/w1_1.jpg'],
+  },
+  {
+    id: 'wed-standard',
+    cat: 'Wedding',
+    title: 'Standard Package',
+    features: [
+      "Bride's whilst getting ready at the hotel",
+      "Groom's whilst getting ready at the hotel",
+      'Main photo session at a Preferred location',
+      'Wedding Ceremony & Reception',
+      '8 × 24 or 12 × 18 Fine Art Story Album — 40 Pages (20 Spreads)',
+      '16 × 24 Two Framed Enlargement',
+      '100 Thank You Cards',
+      'Couple Main Photo Sessions',
+      'Exclusive full event coverage',
+    ],
+    price: 'LKR 90,000',
+    images: ['/images/wedding/w1_2.jpg'],
+  },
+  {
+    id: 'wed-essential',
+    cat: 'Wedding',
+    title: 'The Essential',
+    badge: 'Popular',
+    features: [
+      'A casual photo session at a Preferred location',
+      'Professionally retouched high resolution images on USB',
+      'Preshoot slideshow for wedding day',
+      "Bride's whilst getting ready at the hotel",
+      "Groom's whilst getting ready at the hotel",
+      'Main photo session at a Preferred location',
+      'Wedding Ceremony & Reception',
+      'Casual photo session (2 Dress & 2 Location)',
+      '16 × 24 or 12 × 30 Fine Art Story Album — 50 Pages (25 Spreads)',
+      '16 × 24 Two Framed Enlargement',
+      '12 × 18 Two Framed Enlargement',
+      '100 Thank You Cards',
+      'Couple Main Photo Sessions',
+      'Exclusive full event coverage',
+    ],
+    price: 'LKR 125,000',
+    images: ['/images/wedding/w2_1.jpg'],
+  },
+  {
+    id: 'wed-essential2',
+    cat: 'Wedding',
+    title: 'The Essential 2',
+    features: [
+      'Wedding & Home Coming',
+      "Bride's whilst getting ready at the hotel",
+      "Groom's whilst getting ready at the hotel",
+      'Main photo session at a Preferred location',
+      'Wedding Ceremony & Reception',
+      '16 × 24 or 12 × 30 Fine Art Story Album — 60 Pages (30 Spreads)',
+      '16 × 24 Two Framed Enlargement',
+      '12 × 18 Two Framed Enlargement',
+      '150 Thank You Cards',
+      'Couple Main Photo Sessions — Wedding & Home Coming',
+      'Exclusive full event coverage — Wedding & Home Coming',
+    ],
+    price: 'LKR 125,000',
+    images: ['/images/wedding/w3_1.jpg'],
+  },
+  {
+    id: 'wed-premium',
+    cat: 'Wedding',
+    title: 'Premium Package',
+    badge: 'Best Value',
+    features: [
+      'A casual photo session at a Preferred location',
+      'Professionally retouched high resolution images on USB',
+      'Preshoot slideshow for wedding day',
+      "Bride's whilst getting ready at the hotel",
+      "Groom's whilst getting ready at the hotel",
+      'Main photo session at a Preferred location',
+      'Wedding Ceremony & Reception',
+      'Casual photo session (2 Dress & 2 Location)',
+      '16 × 24 or 12 × 30 Fine Art Story Album — 50 Pages (25 Spreads)',
+      '8 × 24 or 12 × 16 Preshoot or Family Album — 30 Pages (15 Spreads)',
+      '16 × 24 Two Framed Enlargement',
+      '12 × 18 Two Framed Enlargement',
+      '150 Thank You Cards',
+      'Couple Main Photo Sessions',
+      'Exclusive full event coverage',
+    ],
+    price: 'LKR 145,000',
+    images: ['/images/wedding/w2_2.jpg'],
+  },
+];
+
+const EVENTS_PORTRAIT_PACKAGES: Service[] = [
+  {
+    id: 'events-pkg',
     cat: 'Events',
-    title: 'Graduation Photography',
-    desc: 'Your proudest milestone, immortalised forever. We capture the joy, pride, and achievement of your graduation day in stunning detail.',
-    features: ['Full ceremony coverage', 'Family portraits', '100+ edited images', 'Rapid delivery'],
-    price: 'LKR 30,000',
-    unit: '/ day',
-    images: [
-      '/images/graduation/g_1.jpg',
-      '/images/graduation/g_2.jpg',
-      '/images/graduation/g_3.jpg',
+    title: 'Events Photography',
+    badge: 'Customizable',
+    features: [
+      'Birthday parties, anniversaries & celebrations',
+      'Graduation & convocation ceremony coverage',
+      'Corporate functions, launches & private events',
+      'Full coverage with candid guest moments & group captures',
+      'High-resolution professionally retouched digital images',
+      'Flexible coverage duration tailored to your schedule',
     ],
+    price: 'Discuss with Photographer',
+    images: ['/images/graduation/g_2.jpg'],
+    imgPos: 'center 18%',
+    btnText: 'Inquire Now',
   },
   {
-    id: 'birthday',
-    cat: 'Events',
-    title: 'Birthday & Celebrations',
-    desc: 'From intimate gatherings to grand parties — every smile, every cake-cut, every candid moment captured beautifully to relive the celebration.',
-    features: ['Event coverage', '60+ edited images', 'Candid & posed shots', 'Online gallery'],
-    price: 'LKR 20,000',
-    unit: '/ event',
-    images: [
-      '/images/birthday/b_1.jpg',
-      '/images/birthday/b_2.jpg',
-      '/images/birthday/b_3.jpg',
-    ],
-  },
-  {
-    id: 'kids',
+    id: 'portrait-pkg',
     cat: 'Portraits',
-    title: 'Kids & Family',
-    desc: 'Children grow so fast. Freeze those fleeting moments forever with playful, natural, and heartwarming family and kids photography sessions.',
-    features: ['Fun relaxed sessions', '50+ edited images', 'Outdoor locations', 'Quick turnaround'],
-    price: 'LKR 22,000',
-    unit: '/ session',
-    images: [
-      '/images/kids/k_1.jpg',
-      '/images/kids/k_2.jpg',
-      '/images/kids/k_3.jpg',
+    title: 'Portrait & Lifestyle',
+    badge: 'Customizable',
+    features: [
+      'Individual portraits, creative & professional headshots',
+      'Couples, romance & lifestyle photoshoots',
+      'Kids, toddlers & heartwarming family sessions',
+      'Scenic outdoor or preferred locations',
+      'High-resolution professionally retouched photos',
+      'Personalized concepts, styling & creative direction',
     ],
+    price: 'Discuss with Photographer',
+    images: ['/images/portraits/p_2.jpg'],
+    imgPos: 'center 15%',
+    btnText: 'Inquire Now',
   },
 ];
 
@@ -116,22 +204,60 @@ export default function Services() {
     return () => obs.disconnect();
   }, []);
 
-
-
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    // Remove flipped class from all other cards
-    document.querySelectorAll('.flip-card').forEach(el => {
-      if (el !== card) el.classList.remove('flipped');
-    });
-    // Toggle the clicked card
-    card.classList.toggle('flipped');
+  const renderPackageCard = (pkg: Service, i: number) => {
+    const isCustomPrice = !pkg.price.startsWith('LKR');
+    return (
+      <div
+        key={pkg.id}
+        className={`pkg-card reveal d${Math.min(i + 1, 4)}${pkg.badge ? ' pkg-featured' : ''}`}
+        id={`svc-${pkg.id}`}
+      >
+        {pkg.badge && <div className="pkg-badge">{pkg.badge}</div>}
+
+        {/* Image header */}
+        <div className="pkg-img-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={pkg.images[0]}
+            alt={pkg.title}
+            loading="lazy"
+            style={pkg.imgPos ? { objectPosition: pkg.imgPos } : undefined}
+          />
+          <div className="pkg-img-overlay" />
+        </div>
+
+        {/* Body */}
+        <div className="pkg-body">
+          <div className="pkg-cat">{pkg.cat}</div>
+          <h3 className="pkg-title">{pkg.title}</h3>
+
+          <div className="pkg-divider" />
+
+          <ul className="pkg-features">
+            {pkg.features.map((f, fi) => <li key={fi}>{f}</li>)}
+          </ul>
+        </div>
+
+        {/* Footer */}
+        <div className="pkg-footer">
+          <div className="pkg-price-row">
+            <span className="pkg-price-label">Investment</span>
+            <span className={`pkg-price${isCustomPrice ? ' pkg-price-discuss' : ''}`}>
+              {isCustomPrice ? pkg.price : `${pkg.price}/=`}
+            </span>
+          </div>
+          <button className="pkg-book-btn" onClick={scrollToContact}>
+            {pkg.btnText || 'Book Now'}
+          </button>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -141,65 +267,49 @@ export default function Services() {
         <div className="services-intro reveal">
           <div className="label">What I Offer</div>
           <h2 className="heading" style={{ textAlign: 'center' }}>Photography <em>Services</em></h2>
-          <p>Tailored packages for every occasion — click the cards to see full details.</p>
+          <p>Tailored packages for every occasion — choose the perfect package for your special day.</p>
         </div>
 
+        {/* ── ENGAGEMENT PACKAGES ── */}
+        <div className="pkg-section reveal">
+          <div className="pkg-section-header">
+            <div className="pkg-section-line" />
+            <h3 className="pkg-section-title">Engagement Packages</h3>
+            <div className="pkg-section-line" />
+          </div>
+          <div className="pkg-grid pkg-grid-2">
+            {ENGAGEMENT_PACKAGES.map((pkg, i) => renderPackageCard(pkg, i))}
+          </div>
+        </div>
 
+        {/* ── WEDDING PACKAGES ── */}
+        <div className="pkg-section reveal">
+          <div className="pkg-section-header">
+            <div className="pkg-section-line" />
+            <h3 className="pkg-section-title">Wedding Packages</h3>
+            <div className="pkg-section-line" />
+          </div>
+          <div className="pkg-grid pkg-grid-3">
+            {WEDDING_PACKAGES.map((pkg, i) => renderPackageCard(pkg, i))}
+          </div>
+        </div>
 
-        {/* 3D Flip Grid */}
-        <div className="svc-grid">
-          {SERVICES.map((svc, i) => (
-            <div
-              key={svc.id}
-              className={`flip-card reveal d${Math.min(i + 1, 4)}`}
-              id={`svc-${svc.id}`}
-              onClick={handleCardClick}
-            >
-              <div className="flip-inner">
-                {/* ── FRONT ── */}
-                <div className="flip-front">
-                  <div style={{ width: '100%', height: '75%', background: '#090910', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={svc.images[0]}
-                      alt={svc.title}
-                      loading="lazy"
-                      style={{ width: '100%', height: '100%', objectFit: 'contain', transition: 'transform .5s ease' }}
-                    />
-                  </div>
-                  <div className="flip-front-body">
-                    <div className="flip-front-cat">{svc.cat}</div>
-                    <div className="flip-front-title">{svc.title}</div>
-                    <div className="flip-front-hint">Click to see details</div>
-                  </div>
-                </div>
-
-
-                {/* ── BACK ── */}
-                <div className="flip-back">
-                  <div>
-                    <div className="flip-back-label">{svc.cat}</div>
-                    <div className="flip-back-title">{svc.title}</div>
-                    <div className="flip-back-desc">{svc.desc}</div>
-                    <ul className="flip-back-features">
-                      {svc.features.map(f => <li key={f}>{f}</li>)}
-                    </ul>
-                  </div>
-                  <div className="flip-back-footer">
-                    <div>
-                      <div className="flip-back-price">{svc.price}</div>
-                      <div className="flip-back-unit">{svc.unit}</div>
-                    </div>
-                    <button className="flip-book-btn" onClick={scrollToContact}>
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* ── EVENTS & PORTRAIT PACKAGES ── */}
+        <div className="pkg-section reveal">
+          <div className="pkg-section-header">
+            <div className="pkg-section-line" />
+            <h3 className="pkg-section-title">Events &amp; Portrait Packages</h3>
+            <div className="pkg-section-line" />
+          </div>
+          <p className="pkg-section-desc">
+            Customizable packages for birthdays, graduations, special events, and portrait sessions. Pricing can be discussed directly with the photographer.
+          </p>
+          <div className="pkg-grid pkg-grid-2">
+            {EVENTS_PORTRAIT_PACKAGES.map((pkg, i) => renderPackageCard(pkg, i))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+

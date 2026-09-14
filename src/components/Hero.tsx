@@ -50,7 +50,7 @@ export default function Hero() {
 
           <div className="hero-btns reveal">
             <a href="#gallery" className="btn-p" onClick={(e) => go(e, '#gallery')}>
-              ✦ View Portfolio
+              View Portfolio
             </a>
             <a href="#contact" className="btn-s" onClick={(e) => go(e, '#contact')}>
               Book a Session →

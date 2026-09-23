@@ -18,7 +18,7 @@ const ITEMS: Item[] = [
   { id:3,  title:'Timeless Bond',     category:'Weddings',   src:'/images/wedding/w2_1.jpg'    },
   { id:4,  title:'Love Story',        category:'Engagement', src:'/images/engagement/e1_1.jpg' },
   { id:5,  title:'Forever Begins',    category:'Engagement', src:'/images/engagement/e1_2.jpg' },
-  { id:6,  title:'Radiant Portrait',  category:'Portraits',  src:'/images/portraits/p_1.jpg'   },
+  { id:6,  title:'Radiant Portrait',  category:'Portraits',  src:'/images/portraits/n1.jpeg'   },
   { id:7,  title:'Natural Elegance',  category:'Portraits',  src:'/images/portraits/p_2.jpg'   },
   { id:8,  title:'Graduation Day',    category:'Events',     src:'/images/graduation/g_1.jpg'  },
   { id:9,  title:'Celebration',       category:'Events',     src:'/images/birthday/b_1.jpg'    },
